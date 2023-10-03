@@ -38,7 +38,7 @@ export class TonWallet {
 		this.address = account
 	}
 
-	sendMoney = async (toAddress: string, amount: number, isTestnet: boolean = false, callback: any) => {
+	sendMoney = async (toAddress: string, amount: number, isTestnet: boolean = false, metadata: string, callback: any) => {
 		try {
 			await this.connect()
 			await sleep(1000)
@@ -67,7 +67,7 @@ export class TonWallet {
 					[{
 						to: toAddress,
 						value: amountInTon,
-						data: 'questbook TON payout',
+						data: metadata,
 						dataType: 'text'
 					}]
 				)
